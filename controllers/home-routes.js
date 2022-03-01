@@ -39,4 +39,13 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/views/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('/views/login');
+});
+
 module.exports = router;
